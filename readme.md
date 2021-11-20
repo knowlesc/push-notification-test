@@ -9,4 +9,13 @@ Instructions
 6. hit the `Subscribe` button
 7. open the notifier ui (http://localhost:3990)
 8. enter some text in the text box and click `Send Push Notification`
-9. watch for the notification to show up
+9. watch for the notification to show up 
+
+Troubleshooting
+- I've only tested this in chrome so far
+- If you see `Registration failed - A subscription with a different applicationServerKey (or gcm_sender_id) already exists; to change the applicationServerKey, unsubscribe then resubscribe.` in your browser console, do this: 
+  ```
+    const sw = await navigator.serviceWorker.ready
+    const sub = await sw.pushManager.getSubscription()
+    await sub.unsubscribe()
+    ```
