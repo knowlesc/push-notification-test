@@ -12,6 +12,7 @@ Instructions
 9. watch for the notification to show up 
 
 Troubleshooting
+- use node 16.13.0
 - I've only tested this in chrome so far
 - If you see `Registration failed - A subscription with a different applicationServerKey (or gcm_sender_id) already exists; to change the applicationServerKey, unsubscribe then resubscribe.` in your browser console, do this: 
   ```
