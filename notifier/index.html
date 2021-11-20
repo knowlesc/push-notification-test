@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Push Notifications</title>
+</head>
+
+<body>
+  Imagine you're a product person here to trigger some push notifications to users <br />
+  <textarea id="text"></textarea>
+  <button onclick="push()">Send Push Notification</button>
+
+  <script>
+    async function push() {
+      const response = await fetch("http://localhost:3992/notify", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: document.querySelector('#text').value,
+        }),
+      });
+
+      console.log(await response.json());
+    }
+  </script>
+</body>
+
+</html>
